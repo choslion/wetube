@@ -8,12 +8,17 @@
 /search -> Search
 
 <!-- users router -->
-/users/edit -> Edit user
-/users/delete ->Delete user
+/users/:id -> See user
+/users/logout -> log out
+/users/edit -> Edit My Profile
+/users/delete ->Delete my profile
 
 <!-- videos router -->
-/videos/watch -> Watch Video
-/videos/edit Video
-/videos/delete -> Delete Video
+/videos/:id(비디오의주소) -> See Video
+/videos/:id edit -> Edit Video
+/videos/:id delete -> Delete Video
+/videos/upload -> Upload Video
+
+
 /videos/comments -> Comment on a video
 /videos/comments/delete -> Delete a Comment of a video
