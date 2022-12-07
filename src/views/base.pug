@@ -1,0 +1,20 @@
+doctype html 
+html(lang="ko")
+  head 
+    title #{pageTitle} | Wetube
+    link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
+  body
+    header
+      nav
+        ul 
+          if fakeUser.loggedIn
+            li
+              a(href="/login") Log out
+          else
+            li
+              a(href="/login") Login
+      h1=pageTitle
+    main
+      block content
+  //- #{}  << pug 에서 javascript 사용하는법
+include partials/footer.pug
