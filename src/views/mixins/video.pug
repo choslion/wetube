@@ -1,0 +1,9 @@
+mixin videoInfo(eddy)
+      div
+        h4=eddy.title
+        ul
+          li #{eddy.id}
+          li #{eddy.rating}/5
+          li #{eddy.comments} comments.
+          li Posted #{eddy.createdAt}
+          li #{eddy.views} view.
