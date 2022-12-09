@@ -34,10 +34,10 @@ export const trendVideos = (req, res) => {
 };
 export const search = (req, res) => res.send("search");
 export const see = (req, res) => {
-  res.render("see", { pageTitle: "Watch", videos: videos });
+  res.render("see", { pageTitle: "Watch" });
 };
 export const edit = (req, res) => {
-  res.render("edit", { pageTitle: "Edit", videos: videos });
+  res.render("edit", { pageTitle: "Edit" });
 };
 export const upload = (req, res) => res.send("Upload");
 export const deleteVideo = (req, res) => {
