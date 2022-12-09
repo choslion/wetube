@@ -1,6 +1,7 @@
 mixin videoInfo(eddy)
       div
-        h4=eddy.title
+        h4 
+          a(href=`/videos/${eddy.id}`)=eddy.title
         ul
           li #{eddy.id}
           li #{eddy.rating}/5
