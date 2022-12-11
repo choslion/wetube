@@ -24,7 +24,8 @@ app.set("views", process.cwd() + "/src/views");
 
 // use morgan express
 app.use(logger);
-
+// express가 form 정보를 읽을수 있게해줌. 자바스크립트형식으로 바꿔준다.
+app.use(express.urlencoded({ extended: true }));
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
