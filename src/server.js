@@ -1,4 +1,3 @@
-import "./db";
 // const express = require("express");
 import express from "express";
 import morgan from "morgan";
@@ -7,9 +6,6 @@ import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
-
-// sexy code
-const PORT = 4000;
 
 // current working directory 즉 현재 작업위치를 알려줌 (경로알때 좋을듯)
 // console.log(process.cwd());
@@ -31,5 +27,4 @@ app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
-const handleListening = () => console.log(`server listening on port http://localhost:${PORT}`);
-app.listen(PORT, handleListening);
+export default app;
