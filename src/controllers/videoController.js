@@ -1,9 +1,20 @@
 import Video from "../models/Video";
 
-Video.find({}, (err, videos) => {});
+// Video.find({}, (err, videos) => {
+//   if (error) {
+//     return res.render("server-error");
+//   }
+//   return res.render("home", { pageTitle: "Home", videos });
+// });
+//위는 콜백방식 아래는 async , await 사용  아래는 위와 동일한 기능의 코드
 export const home = async (req, res) => {
-  const videos = await Video.find({});
-  return res.render("home", { pageTitle: "Home", videos });
+  try {
+    const videos = await Video.find({});
+    return res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    return res.render("server-error");
+  }
 };
 
 export const search = (req, res) => res.send("search");
@@ -34,7 +45,18 @@ export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 
-export const postUpload = (req, res) => {
-  const { title } = req.body;
+export const postUpload = async (req, res) => {
+  const { title, description, hashtags } = req.body;
+  const video = new Video({
+    title: title,
+    description,
+    createdAt: Date.now(),
+    hashtags: hashtags.split(",").map((item) => `#${item}`),
+    meta: {
+      views: 0,
+      rating: 0,
+    },
+  });
+  await video.save();
   return res.redirect("/");
 };
