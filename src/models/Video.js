@@ -2,14 +2,14 @@ import mongoose, { mongo } from "mongoose";
 
 // models 의 생김새(구조) = 데이터베이스에서 테이블 느낌
 const videoSchema = new mongoose.Schema({
-  title: String,
+  title: { type: String, required: true },
   // title: {type:String};
-  description: String,
-  createdAt: Date,
+  description: { type: String, required: true },
+  createdAt: { type: Date, required: true, default: Date.now },
   hashtags: [{ type: String }],
   meta: {
-    views: Number,
-    rating: Number,
+    views: { type: Number, default: 0, required: true },
+    rating: { type: Number, default: 0, required: true },
   },
 });
 
