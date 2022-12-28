@@ -9,7 +9,7 @@ import Video from "../models/Video";
 //위는 콜백방식 아래는 async , await 사용  아래는 위와 동일한 기능의 코드
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ createdAt: "desc" });
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -17,7 +17,6 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => res.send("search");
 export const watch = async (req, res) => {
   const { id } = req.params;
   // 위랑 같음
@@ -86,4 +85,12 @@ export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
+};
+
+export const search = (req, res) => {
+  const { keyword } = req.query;
+  // if(keyword) {
+
+  // }
+  return res.render("search", { pageTitle: "Search" });
 };
