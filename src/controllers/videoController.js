@@ -53,10 +53,11 @@ export const postEdit = async (req, res) => {
 };
 
 export const upload = (req, res) => res.send("Upload");
-export const deleteVideo = (req, res) => {
-  console.log(req.params);
-  return res.send("DeleteVideo");
-};
+
+// export const deleteVideo = (req, res) => {
+//   console.log(req.params);
+//   return res.send("DeleteVideo");
+// };
 
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
@@ -79,4 +80,10 @@ export const postUpload = async (req, res) => {
     console.log(error);
     res.render("upload", { pageTitle: "Upload Video", errorMessage: error._message });
   }
+};
+
+export const deleteVideo = async (req, res) => {
+  const { id } = req.params;
+  await Video.findByIdAndDelete(id);
+  return res.redirect("/");
 };

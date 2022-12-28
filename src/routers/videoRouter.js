@@ -4,8 +4,8 @@ import { watch, getEdit, postEdit, deleteVideo, getUpload, postUpload } from "..
 const videoRouter = express.Router();
 
 videoRouter.get("/:id([0-9a-f]{24})", watch);
-// videoRouter.get("/:id(\\d+)/delete", deleteVideo);
 videoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+videoRouter.route("/:id([0-9a-f]{24})/delete").get(deleteVideo);
 videoRouter.route("/upload").get(getUpload).post(postUpload);
 
 // 하나의 url에 여러개써줄때 유용.
