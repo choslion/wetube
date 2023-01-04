@@ -1,6 +1,7 @@
 // const express = require("express");
 import express from "express";
 import morgan from "morgan";
+import session from "express-session";
 
 // 모듈화되어져서 온 파일들을 쓸 수 있게 해준다.
 import rootRouter from "./routers/rootRouter";
@@ -23,6 +24,13 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 // express가 form 정보를 읽을수 있게해줌. 자바스크립트형식으로 바꿔준다.
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "Hello!",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
