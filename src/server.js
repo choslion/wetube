@@ -7,6 +7,7 @@ import session from "express-session";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
+import { localsMiddleware } from "./middlewares";
 
 // current working directory 즉 현재 작업위치를 알려줌 (경로알때 좋을듯)
 // console.log(process.cwd());
@@ -31,6 +32,12 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.get("/add-one", (req, res, next) => {
+  req.session.potato += 1;
+  return res.send(`${req.session.id}\n${req.session.potato}`);
+});
+app.use(localsMiddleware);
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
