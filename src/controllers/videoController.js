@@ -12,7 +12,6 @@ export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ createdAt: "desc" });
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
-    console.log(error);
     return res.render("server-error");
   }
 };
@@ -76,7 +75,6 @@ export const postUpload = async (req, res) => {
     });
     return res.redirect("/");
   } catch (error) {
-    console.log(error);
     res.status(400).render("upload", { pageTitle: "Upload Video", errorMessage: error._message });
   }
 };
