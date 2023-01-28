@@ -162,6 +162,11 @@ header .header__btn {
   padding: 5px 10px;
   border-radius: 5px;
 }
+header .header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
 
 footer {
   text-align: center;
@@ -200,9 +205,29 @@ footer {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.auth__switch {
+  text-align: center;
+  margin-top: 40px;
+}
+.auth__switch a {
+  text-decoration: underline;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
 form {
   max-width: 420px;
   margin: 0 auto;
+}
+form:not(.search__form) {
+  padding: 30px;
+  background-color: rgba(25, 25, 25, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 input {
@@ -219,11 +244,23 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
 
-input[type=submit] {
+input[type=submit],
+.social__btn {
   padding: 12px 20px;
-  background-color: #ff1300;
+  background-color: rgba(255, 19, 0, 0.9);
   text-align: center;
   cursor: pointer;
+  display: block;
+  border-radius: 5px;
+}
+
+.social-login {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  padding-top: 40px;
+}
+.social-login .social__btn--github {
+  background-color: #24883b;
 }
 
 .search__form {
@@ -240,6 +277,35 @@ input[type=submit] {
   top: 20px;
   text-align: center;
   cursor: pointer;
+}
+
+.profile__data {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.profile__data img {
+  margin-bottom: 10px;
+}
+.profile__data h3 {
+  font-size: 18px;
+}
+
+.edit-profile__form label {
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.edit-profile__password {
+  margin-top: 40px;
+  text-align: center;
+}
+.edit-profile__password a {
+  text-decoration: underline;
 }
 
 a {
