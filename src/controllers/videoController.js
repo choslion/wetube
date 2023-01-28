@@ -10,7 +10,7 @@ import User from "../models/User";
 //위는 콜백방식 아래는 async , await 사용  아래는 위와 동일한 기능의 코드
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({}).sort({ createdAt: "desc" });
+    const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     return res.render("server-error");
@@ -123,7 +123,7 @@ export const search = async (req, res) => {
   if (keyword) {
     videos = await Video.find({
       title: { $regex: new RegExp(`${keyword}$`, "i") },
-    });
+    }).populate("owner");
   }
   return res.render("search", { pageTitle: "Search", videos });
 };
