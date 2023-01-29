@@ -90,11 +90,18 @@ const handleMouseMove = () => {
     controlsMovementTimeout = null;
   }
   videoControls.classList.add("showing");
-  controlsMovementTimeout = setTimeout(hideControls, 3000);
+  controlsMovementTimeout = setTimeout(hideControls, 2500);
 };
 
 const handleMouseLeave = () => {
-  controlsTimeout = setTimeout(hideControls, 3000);
+  controlsTimeout = setTimeout(hideControls, 2500);
+};
+
+const handleKeyUp = (event) => {
+  console.log(event);
+  if (event.code === "Space") {
+    handlePlayClick();
+  }
 };
 
 playBtn.addEventListener("click", handlePlayClick);
@@ -106,3 +113,5 @@ videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
+video.addEventListener("click", handlePlayClick);
+document.addEventListener("keyup", handleKeyUp);
