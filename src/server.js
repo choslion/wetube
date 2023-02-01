@@ -36,6 +36,12 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+});
+
 app.get("/add-one", (req, res, next) => {
   req.session.potato += 1;
   return res.send(`${req.session.id}\n${req.session.potato}`);
