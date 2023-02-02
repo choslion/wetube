@@ -3,6 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import flash from "express-flash";
 
 // 모듈화되어져서 온 파일들을 쓸 수 있게 해준다.
 import rootRouter from "./routers/rootRouter";
@@ -46,6 +47,8 @@ app.get("/add-one", (req, res, next) => {
   req.session.potato += 1;
   return res.send(`${req.session.id}\n${req.session.potato}`);
 });
+
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
