@@ -9,12 +9,13 @@ form {
   }
 }
 
-input:not(input[type="range"]) {
+input:not(input[type="range"]),
+input[type="submit"] {
   all: unset;
   padding: 15px 20px;
   background-color: black;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 5px;
   color: white;
   width: 90%;
@@ -26,9 +27,18 @@ input:not(input[type="range"]) {
 input[type="submit"],
 .social__btn {
   padding: 12px 20px;
-  background-color: rgba($color: $red, $alpha: 0.9);
-  text-align: center;
-  cursor: pointer;
-  display: block;
   border-radius: 5px;
+  text-align: center;
+  display: block;
+  background-color: white !important;
+  color: rgba($color: $red, $alpha: 1) !important;
+  text-align: center !important;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
