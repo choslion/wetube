@@ -7,7 +7,7 @@ block content
       button#actionBtn Start Recording
     if errorMessage
       span = errorMessage
-   form(method="POST", enctype="multipart/form-data") 
+    form(method="POST", enctype="multipart/form-data") 
       label(for="video") Video File 
       input(type="file" , accept="video/*" , required , id="video" , name="video")
       label(for="thumb") Thumbnail File 
