@@ -18,6 +18,7 @@ const handleSubmit = (event) => {
     body: JSON.stringify({ text }),
   });
   textarea.value = "";
+  window.location.reload();
 };
 
 if (form) {
