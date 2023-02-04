@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "The best way watch video",
   "scripts": {
+    "start": "node build/init.js",
+    "build:server": "babel src -d build",
     "dev:server": "nodemon",
     "dev:assets": "webpack"
   },
@@ -33,7 +35,8 @@
     "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@babel/node": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
